@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<form action="{% url 'participants-creat' %}" method="POST" enctype="multipart/form-data">
+
+		{{form|crispy}}
+		{% csrf_token %}
+		
+		<input type="submit" value="Add participants" class="btn" style="background-color: #e3f2fd; color: black;">
+	</form>
+
+{% endblock content %}
+
+	
+

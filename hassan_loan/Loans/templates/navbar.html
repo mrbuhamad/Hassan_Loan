@@ -1,0 +1,38 @@
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000034;">
+      {% if request.user.is_anonymous %} 
+      <!-- add later href   -->
+      <a class="navbar-brand" href="" style="color: white;">Loan</a>
+      {% else %}
+      <!-- add later href   -->
+      <a class="navbar-brand" href="" style="color: white;">{{request.user.username}}</a>  
+      {% endif %}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          
+          {% if request.user.is_anonymous %}
+          <li class="nav-item active"> 
+            <a class="nav-link" style="color: white;" href="">signup do later</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" style="color: white;" href="">
+              signin do later
+            </a>
+          </li>
+            {% else %}
+           <li class="nav-item active">
+            <a class="nav-link" style="color: white;" href="">New Loan do later</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" style="color: white;" href="">signout do later</a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </nav>
+    

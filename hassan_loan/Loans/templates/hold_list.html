@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- ------add pyment butten ----- -->
+<div class ="row">
+    <h5 class = "mx-auto my-2">{{Hold_amount_obj.participant}}</h5>
+</div>
+
+
+<div class ="row " >
+    <a  href="#creat_form" class="btn mx-auto my-2" class="btn" style="background-color: #000034; color: white;">Add Hold Amount</a>
+</div>
+  
+  
+<!-- ------paymnet list table ----- -->
+<div class = "card my-4">
+<table class="table"> 
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">date</th>
+      <th scope="col">amount</th>
+      {% if request.user.is_authenticated %} 
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for x in Hold_amount_obj %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{x.date}}</td>
+      <td>{{x.part_hold_amount}}</td>
+      {% if request.user.is_authenticated %} 
+      <td><a href="" class="btn" style="background-color: #000034; color: white;">Update</a>
+      </td>
+      <td><a href="{% url 'hold-delete' x.id %}" class="btn" style="background-color: #FFA500; color: #000034;">Delete</a>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+<!-- ------end of paymnet list table ----- -->
+
+{% load crispy_forms_tags %}
+
+<div id="creat_form" class="card my-3 px-3">
+
+    <form class="my-5" action="{% url 'hold-create' participants.id %}" method="POST">
+
+    {{form|crispy}}
+    {% csrf_token %}
+    
+    <input type="submit" value="Add Hold pyment" class="btn mx-auto-auto" style="background-color: #e3f2fd; color: black;">
+  </form>
+</div>
+
+
+{% endblock content %}

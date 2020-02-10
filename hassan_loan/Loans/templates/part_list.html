@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+<!-- adding participants section  -->
+<div class="row mx-auto my-3">
+	<a href="{% url 'participants-creat'%}" class="btn" class="btn" style="background-color: #000034; color: white;">Add participants</a>
+</div>
+{% for x in part_hold_amount %}
+	<p>{{x}}</p>
+{% endfor %}
+<!-- showing participants list section  -->
+<div class="row my-5">
+	{% for x in participants %}
+<div class="col-sm-4">
+	<div class="card ">
+		<a href="{% url 'loan-detail' x.id %}" class="btn" style="background-color: #e3f2fd; color: black;">
+				<h5 class="card-title">Name: {{x.name}}</h5>
+		</a>
+		<div class="card-body">
+			<p> hold amount: {{X.part_hold_amount}}KD </p>
+		</div>
+		<div class="card-body">
+			<p> Profit amount: {{X.part_profit_amount}}KD</p>
+		</div>
+	</div>
+</div>
+	{% endfor %}
+</div>
+</div>
+
+{% endblock content %}
