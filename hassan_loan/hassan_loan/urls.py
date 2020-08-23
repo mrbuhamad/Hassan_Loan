@@ -40,4 +40,8 @@ urlpatterns = [
     path('hold/<int:participants_id>/create', views.hold_create, name='hold-create'),
     path('hold/<hold_id>/delete/', views.hold_delete, name='hold-delete'),
     # -------- hold section-----------------#
+
+
+
+   
 ]

@@ -15,12 +15,12 @@
           <div class="card-body">
             <div class= "col">
               <a href="{% url 'pyment-list' x.id %}" class="btn" style="background-color: #e3f2fd; color: black;">
-                <h4 class="card-title">Loan Number : {{x.id}}</h3>
+                <h4 class="card-title">Loan Number : {{x.id}}</h4>
               </a>
             </div>
             <div class= "col">
               <h5 class="card-title btn">Loan Amount: {{x.loan_amount}}</h5>
-              </a>
+              
             </div>
             <div class= "col">
                 <h5 class="card-title btn">Hold Amount {{x.hold_amount}}</h5>
@@ -34,13 +34,13 @@
       </div>
       {% endfor %}
       </div>
-      {% if request.user.is_authenticated %} 
+      {% if request.user.is_authenticated %}
       <!-- add link to add loan  -->
       <a href="{% url 'loan-create' participants.id %}" class="btn" style="background-color: #000034; color: white;">Add loan</a>
        <a href="{% url 'hold-list' participants.id %}" class="btn" style="background-color: #000034; color: white;">Add hold amount</a>
       {%endif%}
   </div>
-    
+
 
 
 {% endblock content %}

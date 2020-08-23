@@ -6,9 +6,6 @@
 <div class="row mx-auto my-3">
 	<a href="{% url 'participants-creat'%}" class="btn" class="btn" style="background-color: #000034; color: white;">Add participants</a>
 </div>
-{% for x in part_hold_amount %}
-	<p>{{x}}</p>
-{% endfor %}
 <!-- showing participants list section  -->
 <div class="row my-5">
 	{% for x in participants %}
